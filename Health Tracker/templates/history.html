@@ -1,0 +1,32 @@
+purchases_list = []
+for purchase in purchases:
+
+def history():
+
+#if request.method == "POST":
+
+    #stock = db.execute("SELECT stock FROM history WHERE user_id = :user_id", user_id = session["user_id"])
+
+
+    #purchases = db.execute("SELECT stock, boughtsold, price, shares, time, user_id FROM history WHERE user_id = :user_id", stock=stock, price=price, shares=shares, time=timestamp, user_id=session["user_id"] )
+    #price = purchases["price"]
+    purchases = db.execute("SELECT stock, boughtsold, price, shares, time, user_id FROM history WHERE user_id = :user_id", user_id=session["user_id"])
+
+
+
+    for purchase in purchases:
+
+        stock = purchase["stock"]
+        boughtsold = purchase["boughtsold"]
+        price = purchase['price']
+        shares = purchase['shares']
+        time = purchase['time']
+        userid = purchase["user_id"]
+
+#else:
+
+    #stock = lookup(request.form.get("symbol"))
+    return render_template("history.html", stock=stock, boughtsold=boughtsold, price=price, shares=shares, time=time, userid=userid)
+
+purchases_list.append(purchase)
+return render_template("history.html", purchases=purchases_list)

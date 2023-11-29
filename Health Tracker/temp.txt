@@ -1,0 +1,5 @@
+export API_KEY="pk_61d42e3a47c2495f82eff8e82dec1e2e"
+
+
+1. Build history.html file
+2. create transactions table
